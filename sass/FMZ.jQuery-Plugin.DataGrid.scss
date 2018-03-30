@@ -1,0 +1,116 @@
+@charset "utf-8";
+$font-family: "PingFangSC-Regular", "微软雅黑", arial, sans-serif;       //字体
+$headerBgColor: #49AEEB;                                                //表头背景颜色
+$borderColor: #E5E5E5;                                                  //表格边框颜色
+$linkColor: #4089DC;                                                    //表格内容可点击文字颜色
+$fontColor: #333333;                                                    //表格字体颜色
+$TableFontSize: 14px;                                                   //表格字体大小
+$tdHeight: 38px;                                                        //表格单元格高度
+$flipButtonWidth: 62px;                                                 //翻页按钮宽度
+$flipButtonHeight: 28px;                                                //翻页按钮高度
+$paginationButtonBorderColor: #CCCCCC;                                  //翻页按钮边框颜色
+$paginationFontColor: #909090;                                          //翻页按钮字体颜色
+$paginationHoverFontColor: #4089DC;                                     //翻页按钮悬停时字体颜色
+$HoverBgColor: #F4F7FC;                                                 //表格行、翻页按钮悬停时背景颜色
+$forbiddenColor: #CCCCCC;                                               //按钮禁用时背景颜色
+$paginationFontSize: 12px;                                              //页码字体大小
+$pageButtonSelectedBgColor: #49AEEB;                                    //页码按钮选中时背景颜色
+
+.hide {
+    display: none !important;
+}
+
+.fu-dataGrid {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: $font-family;
+    font-size: $TableFontSize;
+    color: $fontColor;
+    margin-bottom: 20px;
+    table-layout: fixed;
+    
+    td {
+        height: $tdHeight;
+        background-color: white;
+        text-align: center;
+        border: 1px solid $borderColor;
+        word-break: keep-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 0px 5px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box; 
+    }
+    
+    thead {
+        
+        td {
+            background-color: $headerBgColor;
+            color: white;
+            
+            &.orderNumber {
+                width: 50px;
+            }
+        }
+    }
+    
+    tbody {
+        
+        tr{
+            &:hover td {
+                background-color: $HoverBgColor;
+            }
+        }
+        
+        a {
+            text-decoration: none;
+            color: $linkColor;
+            margin: 0px 5px;
+            padding: 5px;
+        }
+    }
+}
+
+.fu-pagination {
+    font-family: $font-family;
+    font-size: $paginationFontSize;
+    color: $paginationFontColor;
+    
+    .buttonContainer {
+        float: right;
+        
+        button {
+            height: $flipButtonHeight;
+            background: white;
+            border: 1px solid $paginationButtonBorderColor;
+            outline: none;
+            margin-left: 5px;
+            font-size: $paginationFontSize;
+            font-family: $font-family;
+            color: $paginationFontColor;
+            cursor: pointer;
+            
+            &:hover {
+                background: $HoverBgColor;
+                color: $paginationHoverFontColor;
+            }
+            
+            &.flipButton {
+                width: $flipButtonWidth;
+            }
+            
+            &.pageButton {
+                width: $flipButtonHeight;
+                
+                &.selected {
+                    background: $pageButtonSelectedBgColor;
+                    color: white;
+                }
+            }
+        }
+    }
+}

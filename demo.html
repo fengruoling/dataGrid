@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格控件示例</title>
+		<link rel="stylesheet" type="text/css" href="css/FMZ.jQuery-Plugin.DataGrid.css" />
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/FMZ.jQuery-Plugin.DataGrid.js"></script>
+		<style>
+			html,body {
+				width: 100%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+			#container {
+				padding: 20px 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script>
+			var option = {
+				header: [
+					{"label": "中文船名", "fieldName": "ZWCM", "clickable": true, "clickFunction": function() {
+						alert("我的ID是" + $('#container').getFuDataGridClickedRowID() + "，我被点击啦");
+					}},
+					{"label": "英文船名", "fieldName": "YWCM", "width": "20%"},
+					{"label": "船舶型号", "fieldName": "CBXH"},
+					{"label": "长度", "fieldName": "CD", "width": "100px"},
+					{"label": "状态", "fieldName": "ZT", "width": "100px"},
+					{"label": "MMSI", "fieldName": "MMSI", "width": "100px"},
+					{"label": "所属船公司", "fieldName": "SSCGS"},
+				],
+				rowNum: 10,
+				includeOrderNumber: true,
+				operation: {
+					width: "150px",
+					data: [
+						{
+							"label": "定位",
+							"clickFunction": function() {
+								alert("我的ID是" + $('#container').getFuDataGridClickedRowID() + "，我要进行定位啦");
+							}
+						},
+						{
+							"label": "查看详情",
+							"clickFunction": function() {
+								alert("我的ID是" + $('#container').getFuDataGridClickedRowID() + "，我要查看详情啦");
+							}
+						},
+					],
+				},
+				emptyRow: "hide"
+			};
+			$('#container').createFuDataGrid(option);
+			
+			$('#container').bindPageClickEvent(function(page) {
+				//TODO	如果有查询面板，这里可以获取查询面板的过滤结果
+				
+				//TODO	根据页码和过滤结果，去后台获取数据
+				
+				//TODO	刷新数据
+				
+				/*----------------------测试代码--------------------*/
+				var tableData = {
+					data: [
+						{"ROW_ID": "1", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "2", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "散货船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "3", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "集装箱船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "4", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "5", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "6", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "散货船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "7", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "集装箱船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "8", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "9", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "散货船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+						{"ROW_ID": "10", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "集装箱船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					],
+					totalNum: 70,
+					pageIndex: page
+				};
+				$('#container').loadFuDataGridData(tableData);
+				/*-------------------------------------------------*/
+			});
+			
+			var tableData = {
+				data: [
+					{"ROW_ID": "1", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "2", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "散货船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "3", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "集装箱船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "4", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "5", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "6", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "散货船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "7", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "集装箱船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "8", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "游船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "9", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "散货船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+					{"ROW_ID": "10", "ZWCM": "葫芦岛", "YWCM": "Bohai Amanda", "CBXH": "集装箱船", "CD": "100", "ZT": "驶离", "MMSI": "1028", "SSCGS": "大铲湾港口投资有限公司"},
+				],
+				totalNum: 50,
+				pageIndex: 1
+			};
+			$('#container').loadFuDataGridData(tableData);
+		</script>
+	</body>
+</html>

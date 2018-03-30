@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.hide { display: none !important; }
+
+.fu-dataGrid { width: 100%; border-collapse: collapse; font-family: "PingFangSC-Regular", "微软雅黑", arial, sans-serif; font-size: 14px; color: #333333; margin-bottom: 20px; table-layout: fixed; }
+.fu-dataGrid td { height: 38px; background-color: white; text-align: center; border: 1px solid #E5E5E5; word-break: keep-all; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; padding: 0px 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
+.fu-dataGrid thead td { background-color: #49AEEB; color: white; }
+.fu-dataGrid thead td.orderNumber { width: 50px; }
+.fu-dataGrid tbody tr:hover td { background-color: #F4F7FC; }
+.fu-dataGrid tbody a { text-decoration: none; color: #4089DC; margin: 0px 5px; padding: 5px; }
+
+.fu-pagination { font-family: "PingFangSC-Regular", "微软雅黑", arial, sans-serif; font-size: 12px; color: #909090; }
+.fu-pagination .buttonContainer { float: right; }
+.fu-pagination .buttonContainer button { height: 28px; background: white; border: 1px solid #CCCCCC; outline: none; margin-left: 5px; font-size: 12px; font-family: "PingFangSC-Regular", "微软雅黑", arial, sans-serif; color: #909090; cursor: pointer; }
+.fu-pagination .buttonContainer button:hover { background: #F4F7FC; color: #4089DC; }
+.fu-pagination .buttonContainer button.flipButton { width: 62px; }
+.fu-pagination .buttonContainer button.pageButton { width: 28px; }
+.fu-pagination .buttonContainer button.pageButton.selected { background: #49AEEB; color: white; }
+
+/*# sourceMappingURL=FMZ.jQuery-Plugin.DataGrid.css.map */
